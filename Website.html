@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chizzle - Instant Text Styling</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* --- STYLE COPIED EXACTLY FROM OVEN WEBSITE --- */
+        body {
+            padding: 10px;
+            background-color: #f9f9fa;
+            color: #000;
+            font-family: "Inter Tight", sans-serif;
+        }
+
+        h1, h2 {
+            font-weight: 800;
+            text-align: center;
+        }
+
+        h1 {
+            color: #181818;
+            font-size: 32px;
+            margin-top: 10px;
+            margin-bottom: -14px;
+        }
+
+        h2 {
+            color: #181818;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 20px 20px -15px;
+            text-align: left;
+        }
+
+        h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 10px 20px -20px;
+        }
+
+        p, tr, ul {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.4;
+            z-index: 1;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            text-align: center;
+            padding: 8px;
+            border: 2px solid #cecece;
+        }
+
+        .section {
+            background-color: #fff;
+            border-radius: 7px;
+            padding: 7px 0;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, .118);
+            margin-bottom: 22px;
+        }
+
+        .section hr {
+            border: 1px solid #e1e1e1;
+        }
+
+        .tip {
+            background-color: #fff;
+            border-color: #cecece;
+            border-width: 2px;
+            border-style: solid;
+            border-radius: 7px;
+            padding-top: 1px;
+            padding-bottom: -10px;
+            margin: 20px;
+            margin-bottom: 12px
+        }
+
+        .tip p {
+            margin-bottom: 10px
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        ul ul {
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .tip hr {
+            border: 1px solid #cecece;
+            height: 0px;
+        }
+
+        .blur-container {
+            display: flex;
+            justify-content: center;
+            gap: 200px; /* Adjusted gap for text width */
+            margin: 20px 0;
+            margin-left: -15px; 
+        }
+
+
+        .blurred {
+            font-size: 25px;
+            font-weight: 600;
+            filter: blur(8px); 
+            transition: filter 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .blurred:hover {
+            filter: blur(0); 
+        }
+        
+        .vidcontainer {
+            position: relative;
+            margin: 10px 20px;
+            max-width: calc(100% - 40px);
+        }
+
+        .vidcontainer video {
+            border-radius: 6px;
+            display: block;
+        }
+
+        .container {
+            position: relative;
+            margin: 0 60px; 
+            margin-bottom: -20px;
+            max-width: calc(100% - 40px); 
+            padding-bottom: 46%; 
+        }
+
+        .container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block; 
+            object-fit: contain; 
+            border-radius: 6px; 
+        }
+
+
+        .image1, .image2 {
+            transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        }
+
+        .image2 {
+            opacity: 0;
+        }
+
+        .container:hover .image2 {
+            opacity: 1;
+        }
+
+        .container:hover .image1 {
+            opacity: 0;
+        }
+
+        .button {
+            background-color: #007bff; 
+            border: none;
+            color: white;
+            width: calc(100% - 77px);
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0px 30px 0px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <h1>What's Chizzle?</h1>
+        <p style="text-align: justify;"><b>Creating bevelled text in Blender is unexpectedly a big hassle.</b> Default bevel options are too limited, produce bad topology, and for some reason, almost always return non-manifold geometry with artifacts on most fonts.</p>
+
+        <p style="text-align: justify;">If you have ever searched for <b>"how to make Chiseled text"</b> in Blender, you will find answers asking you to either model the geometry manually in Edit Mode, or do it in Adobe Illustrator and export it back to Blender. Both of these solutions are destructive, not scalable, and take tons of time.</p>
+        
+        <p style="text-align: justify;"><b>Chizzle</b> makes this process insanely simple. It harnesses the power of Geometry Nodes to give you a customizable, procedural, and non-destructive solution that eliminates the hassle entirely.</p>
+
+        <div class="vidcontainer">
+            <video src="https://boreomotion.github.io/ChizzleWebsite/Vid11.mp4" autoplay="autoplay" loop="true" width=100% muted=""></video>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h1>Endless Customization</h1>
+        <p style="text-align: center;"><b>Because Chizzle is powered by Geometry Nodes,</b> you get full control directly inside the Modifiers tab. Every setting is neatly organized into categories, keeping your interface clean and your workflow stress-free.</p>
+        
+        <div style="margin: 20px auto; text-align: center; max-width: 85%;">
+            <img src="https://raw.githubusercontent.com/BoreoMotion/ChizzleWebsite/refs/heads/main/Options.png" alt="Chizzle Customization Options" style="width: 100%; height: auto; border-radius: 6px;">
+        </div>
+        
+        <hr>
+        <p style="text-align: justify;">Chizzle gives you control over just about everything in your model. You can tweak the simple stuff, like tightening up letter spacing or pumping up the extrusion depth, or go deep on those procedural noise settings if that's your thing. So if you're after a razor-sharp modern style or a crusty, ancient stone feel, the interface is so straightforward you'll have your perfect look locked down in seconds.</p>
+    </div>
+
+
+    <div class="section">
+        <h1>Procedural Power</h1>
+        <p style="text-align: center;">Check out this quick demo of tweaking the settings. Since it's completely non-destructive, you are free to change the actual text content whenever you want.</p>
+        <div class="vidcontainer">
+            <video src="https://boreomotion.github.io/ChizzleWebsite/Vid22.mp4" autoplay="autoplay" loop="true" width=100% muted=""></video>
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>Why Chizzle?</h1>
+        <p style="text-align: justify;">Chizzle is designed to feel like a native Blender feature. It integrates seamlessly into the <b>Add</b> menu and the modifier stack. Whether you are doing motion graphics, architectural visualization, or stylized art, Chizzle handles the typography so you can focus on the composition.</p>
+        
+        <hr>
+        <h2>✒️ Vector & SVG Support</h2>
+        <p style="text-align: justify;">It works on more than just text! Select <b>"Add > Chisel > Vector"</b> to apply the same powerful beveling and texturing engine to imported SVG files. Logos and icons become 3D objects instantly, with the same non-destructive controls you use for fonts.</p>
+        <hr>
+        <h2>⚡ Performance Optimized</h2>
+        <p style="text-align: justify;">Heavy geometry can slow down your viewport. Chizzle includes separate controls for <b>Resolution Viewport</b> and <b>Resolution Render</b>. Keep your scene snappy while you work at 10% resolution, but export crisp, high-poly meshes when you hit render.</p>
+        
+        <hr>
+        <h2>⛏️ Advanced Bevel Profiles</h2>
+        <p style="text-align: justify;">Don't settle for a simple 45-degree angle. Use the <b>Blur</b>, <b>Height</b>, and <b>Thickness</b> sliders to craft the perfect edge. Whether you need a sharp mechanical chamfer or a soft, bubbly edge, the controls are right at your fingertips.</p>
+
+        <hr>
+        <h2>🪨 Built-in Noise</h2>
+        <p style="text-align: justify;">Perfect 3D text is boring. That's why Chizzle includes a robust <b>Noise</b> engine directly in the interface. Add <b>Roughness</b>, <b>Distortion</b>, and <b>Detail</b> to your text to create weathered stone, organic surfaces, or stylized imperfections without setting up a single shader node.</p>
+    </div>
+
+</body>
+</html>
